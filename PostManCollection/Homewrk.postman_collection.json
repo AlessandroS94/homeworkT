@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "7e787c69-b1e1-43af-a9e9-6bddc3a0facd",
+		"name": "Homewrk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42132870"
+	},
+	"item": [
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fileToUpload",
+							"type": "file",
+							"src": "/Users/alessandrosallese/Desktop/Docker.dmg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/file",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get part",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/file/elaborate/1/10/64",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"file",
+						"elaborate",
+						"1",
+						"10",
+						"64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
