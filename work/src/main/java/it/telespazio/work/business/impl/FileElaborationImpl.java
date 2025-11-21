@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.HexFormat;
 
 import java.io.IOException;
+import java.util.List;
 
 
 @Service
@@ -58,7 +59,7 @@ public class FileElaborationImpl implements FileElaborationInterface {
 
         long totalLength = end - start;
         if (totalLength <= 0) {
-            return "";
+            throw new IllegalArgumentException("Not correct range");
         }
         if (totalLength > Integer.MAX_VALUE) {
             throw new IllegalArgumentException("Requested range is too large");
@@ -66,7 +67,7 @@ public class FileElaborationImpl implements FileElaborationInterface {
 
         byte[] result = new byte[(int) totalLength];
 
-        var partOfFile = contentRepository
+        List<ContentFile> partOfFile = contentRepository
                 .findByFileIdAndStartContentLessThanAndEndContentGreaterThanOrderByStartContent(
                         id, end, start
                 );
