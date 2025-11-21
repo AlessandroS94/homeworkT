@@ -29,7 +29,7 @@ public class FileController {
     }
 
     @GetMapping("/elaborate/{id}/{start}/{end}")
-    private ResponseEntity<?> getByte(@PathVariable Long id, @PathVariable Long start, @PathVariable Long end, @RequestBody MultipartFile fileToUpload){
+    private ResponseEntity<?> getByte(@PathVariable Long id, @PathVariable Long start, @PathVariable Long end){
         String stringFile = fileElaborationInterface.getFile(id, start, end);
         return new ResponseEntity<>(new FilePayload("Result",stringFile), HttpStatus.OK);
     }
